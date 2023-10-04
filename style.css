@@ -1,0 +1,12 @@
+#grid {
+  padding: 0;
+  border: 5px solid red;
+  display: grid;
+  grid-template-columns: repeat(25, 32px);
+  justify-content: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
