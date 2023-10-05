@@ -1,8 +1,14 @@
 const grid = document.querySelector("#grid");
 
-let number = 500;
-for (let i = 0; i < number; i++) {
+for (let i = 0; i < 1000; i++) {
   let square = document.createElement("div");
-  square.style.cssText = "width: 32px; height: 32px; background-color: black;";
+  square.style.cssText = "width: 16px; height: 16px; background-color: black;";
   grid.appendChild(square);
+
+  square.addEventListener("mouseover", function () {
+    square.style.backgroundColor = "white";
+  });
+  square.addEventListener("mouseout", function () {
+    square.style.backgroundColor = "black";
+  });
 }
