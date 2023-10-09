@@ -1,10 +1,25 @@
-#grid {
-  display: grid;
-  grid-template-columns: repeat(25, 16px);
+html {
+  background-color: lightgray;
 }
-
 #container {
   display: flex;
   justify-content: center;
-  margin-top: 20vh;
+  margin-top: 5vh;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#colorChooseText {
+  color: black;
+  margin: 5px;
+}
+
+#gridSizeChooseText {
+  color: black;
+  margin: 5px;
 }
