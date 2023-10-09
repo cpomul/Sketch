@@ -1,34 +1,26 @@
 const grid = document.querySelector("#grid");
+const userColorPicker = document.querySelector("#color-picker");
+const gridRange = document.querySelector("#gridRange");
 
-function hoverColor(square) {
-  square.addEventListener("mouseover", () => {
-    square.style.cssText = "background-color: white";
-  });
-}
+userColorPicker.addEventListener("change", function () {});
 
-function revertColor(square) {
-  square.addEventListener("mouseleave", () => {
-    square.style.cssText = "background-color: black";
-  });
-}
-
-function changeColor(square) {
+function addColor(square) {
   square.addEventListener("click", () => {
-    square.style.cssText = "background-color: green";
+    square.style.cssText = `width: 16px; height: 16px; background-color: ${userColorPicker.value}`;
   });
 }
 
+// generate divs inside #grid
 function generateGrid(squareNumbers) {
-  for (let i = 0; i < squareNumbers; i++) {
+  gridRange.addEventListener("change", () => {});
+  for (let i = 0; i < squareNumbers * squareNumbers; i++) {
     square = document.createElement("div");
     square.style.cssText =
-      "width: 16px; height: 16px; background-color: black;";
+      "width: 16px; height: 16px; background-color: black; ";
     grid.appendChild(square);
-
-    changeColor(square);
-    //hoverColor(square);
-    //revertColor(square);
+    addColor(square);
   }
+  grid.style.cssText = `border: 5px solid gray;border-radius: 3px; display: grid; grid-template-columns: repeat(${squareNumbers}, 16px);`;
 }
 
-generateGrid(500);
+generateGrid(gridRange.value);
