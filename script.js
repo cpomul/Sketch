@@ -1,6 +1,11 @@
 const grid = document.querySelector("#grid");
 const userColorPicker = document.querySelector("#color-picker");
 const gridRange = document.querySelector("#gridRange");
+const gridNumberValue = document.querySelector("#gridNumberValue");
+
+gridRange.oninput = function () {
+  gridNumberValue.textContent = gridRange.value + "x" + gridRange.value;
+};
 
 userColorPicker.addEventListener("change", function () {});
 
@@ -10,9 +15,11 @@ function addColor(square) {
   });
 }
 
-// generate divs inside #grid
 function generateGrid(squareNumbers) {
   gridRange.addEventListener("change", () => {});
+  if (gridNumberValue.textContent == "") {
+    gridNumberValue.textContent = gridRange.value + "x" + gridRange.value;
+  }
   for (let i = 0; i < squareNumbers * squareNumbers; i++) {
     square = document.createElement("div");
     square.style.cssText =
