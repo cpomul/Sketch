@@ -1,25 +1,48 @@
-html {
-  background-color: lightgray;
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+* {
+  font-family: "VT323", monospace;
 }
+
 #container {
   display: flex;
   justify-content: center;
-  margin-top: 4vh;
 }
-
+.grid {
+  border: 3px solid gainsboro;
+}
 .buttonContainer {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  margin-top: 15px;
+  gap: 10px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  align-items: center;
 }
-
 #colorChooseText {
   color: black;
   margin: 5px;
+  font-size: larger;
 }
 
 #gridSizeChooseText {
+  font-size: larger;
   color: black;
   margin: 5px;
+}
+
+footer {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 0;
+}
+#copyrightText {
+  align-self: center;
+}
+#github-mark {
+  width: 30px;
+  height: 30px;
+}
+a {
+  align-self: center;
 }
