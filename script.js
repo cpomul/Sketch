@@ -9,12 +9,7 @@ gridRange.oninput = function () {
   gridNumberValue.textContent = gridRange.value + "x" + gridRange.value;
 };
 
-// div colouring
-function addColor(square) {
-  square.addEventListener("click", () => {
-    square.style.cssText = `width: 16px; height: 16px; background-color: ${userColorPicker.value}`;
-  });
-}
+let mouseDown = false;
 
 // main function
 function generateGrid(squareNumbers) {
@@ -28,9 +23,30 @@ function generateGrid(squareNumbers) {
     square.style.cssText =
       "width: 16px; height: 16px; background-color: white; ";
     grid.appendChild(square);
-    addColor(square);
   }
   grid.style.cssText = `display: grid; grid-template-columns: repeat(${squareNumbers}, 16px);`;
+
+  grid.onmousedown = () => {
+    mouseDown = true;
+    event.target.style.backgroundColor = userColorPicker.value;
+  };
+
+  grid.onmouseup = () => {
+    mouseDown = false;
+  };
+
+  grid.onmouseleave = () => {
+    mouseDown = false;
+  };
+
+  // Function to handle coloring when moving the mouse over the grid
+  grid.onmousemove = function (event) {
+    if (mouseDown) {
+      if (event.target && event.target.style) {
+        event.target.style.backgroundColor = userColorPicker.value;
+      }
+    }
+  };
 }
 //first instance of the grid on page load
 generateGrid(gridRange.value);
