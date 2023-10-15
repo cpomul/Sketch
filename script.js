@@ -21,12 +21,12 @@ function generateGrid(squareNumbers) {
   for (let i = 0; i < squareNumbers * squareNumbers; i++) {
     square = document.createElement("div");
     square.style.cssText =
-      "width: 16px; height: 16px; background-color: white; ";
+      "outline : 1px solid; width: 16px; height: 16px; background-color: white; ";
     grid.appendChild(square);
   }
   grid.style.cssText = `display: grid; grid-template-columns: repeat(${squareNumbers}, 16px);`;
 
-  grid.onmousedown = () => {
+  grid.onmousedown = (event) => {
     mouseDown = true;
     event.target.style.backgroundColor = userColorPicker.value;
   };
