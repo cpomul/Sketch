@@ -3,6 +3,7 @@ const userColorPicker = document.querySelector("#color-picker");
 const gridRange = document.querySelector("#gridRange");
 const gridNumberValue = document.querySelector("#gridNumberValue");
 const gridResetButton = document.querySelector("#gridResetButton");
+const eraseGrid = document.querySelector("#eraseGrid");
 
 //displays slider values
 gridRange.oninput = function () {
@@ -60,5 +61,9 @@ function resetGrid() {
 }
 
 gridResetButton.addEventListener("click", () => {
+  resetGrid();
+});
+
+eraseGrid.addEventListener("click", () => {
   resetGrid();
 });
